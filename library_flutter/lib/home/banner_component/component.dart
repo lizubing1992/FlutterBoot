@@ -7,11 +7,7 @@ import 'view.dart';
 class BannerComponent extends Component<BannerState> {
   BannerComponent()
       : super(
-            effect: buildEffect(),
-            view: buildView,
-            dependencies: Dependencies<BannerState>(
-                adapter: null,
-                slots: <String, Dependent<BannerState>>{
-                }),);
-
+          effect: buildEffect(),
+          view: buildView,
+        );
 }

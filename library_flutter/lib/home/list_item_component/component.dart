@@ -1,17 +1,13 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:library_flutter/model/model.dart';
 
 import 'effect.dart';
-import 'state.dart';
 import 'view.dart';
 
-class ArticleComponent extends Component<ArticleState> {
-  ArticleComponent()
+class HomeListItemComponent extends Component<ArticleModel> {
+  HomeListItemComponent()
       : super(
-            effect: buildEffect(),
-            view: buildView,
-            dependencies: Dependencies<ArticleState>(
-                adapter: null,
-                slots: <String, Dependent<ArticleState>>{
-                }),);
-
+          view: buildView,
+          effect: buildEffect(),
+        );
 }

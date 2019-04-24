@@ -23,7 +23,7 @@ public class FlutterPageActivity extends BoostFlutterActivity {
    */
   @Override
   public String getContainerName() {
-    return "flutterPage";
+    return "first";
   }
 
   /**

@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'state.dart';
 
-Widget buildView(ArticleListState state, Dispatch dispatch, ViewService viewService) {
-  return Container();
+Widget buildView(ArticleListState state, dispatch, ViewService viewService) {
+  final ListAdapter listAdapter = viewService.buildAdapter();
+
+  return Container(
+    child: new SliverList(
+        delegate: new SliverChildBuilderDelegate(listAdapter.itemBuilder,
+            childCount: listAdapter.itemCount)),
+  );
 }

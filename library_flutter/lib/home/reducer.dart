@@ -1,17 +1,28 @@
 import 'package:fish_redux/fish_redux.dart';
 
+import '../model/model.dart';
 import 'action.dart';
 import 'state.dart';
 
-Reducer<HomeState> buildReducer() {
+Reducer<HomePageState> buildReducer() {
   return asReducer(
-    <Object, Reducer<HomeState>>{
-      HomeAction.action: _onAction,
+    <Object, Reducer<HomePageState>>{
+      HomePageAction.loadBannerData: loadBannerData,
+      HomePageAction.loadArticleData: loadArticleData,
     },
   );
 }
 
-HomeState _onAction(HomeState state, Action action) {
-  final HomeState newState = state.clone();
+HomePageState loadBannerData(HomePageState state, Action action) {
+  final HomePageState newState = state.clone();
+  List<BannerModel> list = action.payload;
+  newState.bannerList = list;
+  return newState;
+}
+
+HomePageState loadArticleData(HomePageState state, Action action) {
+  final HomePageState newState = state.clone();
+  List<ArticleModel> list = action.payload;
+  newState.articleList.addAll(list);
   return newState;
 }

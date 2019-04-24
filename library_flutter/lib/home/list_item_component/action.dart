@@ -1,10 +1,10 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:library_flutter/model/model.dart';
 
-//TODO replace with your own action
-enum ArticleAction { action }
+enum ArticleListItemAction { onGotoWebView }
 
-class ArticleActionCreator {
-  static Action onAction() {
-    return const Action(ArticleAction.action);
+class ArticleListItemActionCreator {
+  static Action onGotoWebViewAction(ArticleModel model) {
+    return Action(ArticleListItemAction.onGotoWebView, payload: model);
   }
 }

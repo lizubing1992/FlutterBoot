@@ -1,12 +1,19 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'action.dart';
-import 'state.dart';
+import 'package:flutter/material.dart';
+import 'package:library_flutter/model/model.dart';
+import 'package:library_flutter/widget/web_view_page.dart';
 
-Effect<ArticleState> buildEffect() {
-  return combineEffects(<Object, Effect<ArticleState>>{
-    ArticleAction.action: _onAction,
+import 'action.dart';
+
+Effect<ArticleModel> buildEffect() {
+  return combineEffects(<Object, Effect<ArticleModel>>{
+    ArticleListItemAction.onGotoWebView: _onGotoWebPage,
   });
 }
 
-void _onAction(Action action, Context<ArticleState> ctx) {
+void _onGotoWebPage(Action action, Context<ArticleModel> ctx) {
+  Navigator.of(ctx.context).push(new MaterialPageRoute(builder: (context) {
+    ArticleModel article = action.payload;
+    return WebViewPage(article.link, article.title);
+  }));
 }

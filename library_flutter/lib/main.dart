@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'package:logs/logs.dart';
-
+import 'index.dart';
 import 'simple_page_widgets.dart';
 
 void main() => runApp(MyApp());
@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     FlutterBoost.singleton.registerPageBuilders({
-      'first': (pageName, params, _) => FirstRouteWidget(),
+      'first': (pageName, params, _) => Index(),
       'second': (pageName, params, _) => SecondRouteWidget(),
       'tab': (pageName, params, _) => TabRouteWidget(),
       'flutterFragment': (pageName, params, _) => FragmentRouteWidget(params),
