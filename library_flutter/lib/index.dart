@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'home/home_page.dart';
+import 'knowledge/page.dart';
 import 'widget/my_will_pop_scope.dart';
 
 class Index extends StatelessWidget {
@@ -36,11 +38,17 @@ class _MyHomePageState extends State<MyHomePage>
     super.initState();
     children = new List();
     children.add(new HomePage().buildPage(null));
-
+    children.add(new KnowledgePage().buildPage(null));
     tabs = new List();
     tabs.add(
       new Tab(
         text: "首页",
+        icon: new Icon(Icons.home),
+      ),
+    );
+    tabs.add(
+      new Tab(
+        text: "知识体系",
         icon: new Icon(Icons.home),
       ),
     );
@@ -59,9 +67,7 @@ class _MyHomePageState extends State<MyHomePage>
           controller: tabController,
         ),
         bottomNavigationBar: new Container(
-          color: Theme
-              .of(context)
-              .primaryColor,
+          color: Theme.of(context).primaryColor,
           child: new TabBar(
             tabs: tabs,
             controller: tabController,
